@@ -10,9 +10,9 @@ import (
 
 	"github.com/alesr/o11yhn/internal/kafkaconsumer"
 	"github.com/alesr/o11yhn/internal/kafkaingester"
+	"github.com/alesr/o11yhn/internal/pkg/kafkaconfig"
 	"github.com/alesr/o11yhn/internal/storage"
 	"github.com/alesr/o11yhn/pkg/cmdutil"
-	"github.com/alesr/o11yhn/pkg/kafkaconfig"
 	"github.com/alesr/o11yhn/pkg/telemetry"
 	"go.opentelemetry.io/otel"
 )
