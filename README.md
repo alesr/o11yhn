@@ -17,7 +17,11 @@ This is an exploration project meant to run only locally, so tests will come lat
 
 ## Architecture
 
-![o11yhn architecture](docs/arch.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/arch-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="docs/arch.svg">
+  <img alt="o11yhn architecture" src="docs/arch.svg">
+</picture>
 
 1. `cmd/producer`
    - initialize telemetry
