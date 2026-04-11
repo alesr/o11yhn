@@ -22,6 +22,7 @@ Now that *o11yhn* is successfully piping observability-related HN mentions into 
 I want to be able to ask the sandbox questions like:
 
 *- "What are the current top-of-mind challenges for developers around observability?"*
+
 *- "What is the overall developer perception of [Specific Tool]?"*
 
 To handle both specific and abstract queries, the next phase involves implementing an Intent Classifier to route search requests based on the nature of the question:
