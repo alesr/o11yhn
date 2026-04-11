@@ -15,6 +15,23 @@ This is an exploration project meant to run only locally, so tests will come lat
 - maintains both raw and canonical deduplicated query surfaces
 - emits traces for producer/consumer/storage activity to Dash0
 
+## *NEXT*
+
+Now that *o11yhn* is successfully piping observability-related HN mentions into ClickHouse, the focus shifts to "extracting signals" using a local AI.
+
+I want to be able to ask the sandbox questions like:
+
+*- "What are the current top-of-mind challenges for developers around observability?"*
+*- "What is the overall developer perception of [Specific Tool]?"*
+
+To handle both specific and abstract queries, the next phase involves implementing an Intent Classifier to route search requests based on the nature of the question:
+
+**Keyword Routing (SQL)**: For terms like *"What do people think of Dash0?"*, the engine should prioritize direct keyword matches and metadata filters in ClickHouse.
+
+**Semantic Routing (Vector)**: for conceptual questions like *"Typical observability challenges..."*, the engine should pivot to Vector Search to find mentions that are "close" in meaning, even if they don't share specific keywords.
+
+Once this is done, I'll look into exposing this as a local AI assistant—likely served via a lightweight HTMX interface =]
+
 ## Architecture
 
 <picture>
@@ -73,19 +90,7 @@ This is an exploration project meant to run only locally, so tests will come lat
 
 ### 1) Configure env
 
-Use `.env` (example in `.env.example`):
-
-- `KAFKA_BROKERS=127.0.0.1:9092`
-- `KAFKA_TOPIC=hn-mentions`
-- `KAFKA_CONSUMER_GROUP=clickhouse-ingester`
-- `KAFKA_RESET_OFFSET=latest` (`earliest` to backfill old topic data)
-- `ENGINE_KEYWORDS=Dash0,OpenTelemetry,...`
-- `ENGINE_HISTORY_LOOKBACK=1440h`
-- `CLICKHOUSE_ADDR=localhost:9000`
-- `CLICKHOUSE_USER=...`
-- `CLICKHOUSE_PASSWORD=...`
-- `DASH0_OTLP_ENDPOINT=...`
-- `DASH0_AUTH_TOKEN=...`
+Use `.env` (example in `.env.example`)
 
 ### 2) Start local infra
 
