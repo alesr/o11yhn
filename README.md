@@ -17,6 +17,8 @@ This is an exploration project meant to run only locally, so tests will come lat
 
 ## Architecture
 
+![o11yhn architecture](docs/arch.svg)
+
 1. `cmd/producer`
    - initialize telemetry
    - loads persisted watermark
